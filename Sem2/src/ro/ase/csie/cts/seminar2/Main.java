@@ -51,15 +51,17 @@ public class Main {
 		
 		System.out.println(account.getBalance());
 		
-		FeeBankAccount fb = new FeeBankAccount("ING12345789", p);
-		fb.deposit(500);
+		//FeeBankAccount fb = new FeeBankAccount("ING12345789", p);
+		account = new FeeBankAccount("ING12345789", p);
+
+		account.deposit(500);
 		try {
-			fb.withdraw(100);
+			account.withdraw(100);
 		} catch (InsuficientFundException e) {
 			System.out.println(e.getMessage());
 		}
 		
-		System.out.println(fb.getBalance());
+		System.out.println(account.getBalance());
 	}
 
 }
