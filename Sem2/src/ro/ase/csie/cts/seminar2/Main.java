@@ -7,11 +7,16 @@ public class Main {
 
 		CalendarUtil cu = new CalendarUtil();
 		
-		System.out.println(cu.weekDay(1));
+		try {
+			System.out.println(cu.weekDay(1));
+			System.out.println(cu.weekDay2(1));
+			System.out.println(cu.weekDay3(1));
+			System.out.println(cu.weekDay3(9));
+		} catch (IncorectDayException e) {
+			System.out.println(e.getMessage());
+		}
 		
-		System.out.println(cu.weekDay2(1));
 		
-		System.out.println(cu.weekDay3(1));
 	}
 
 }
