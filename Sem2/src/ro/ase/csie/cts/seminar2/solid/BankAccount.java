@@ -27,7 +27,7 @@ public class BankAccount {
 	}
 	
 	public void deposit(long amount) {
-		System.out.println("depositing " + amount + " in " + iban);
+		System.out.println("adding " + amount + " in " + iban);
 		balance += amount;
 	}
 	
