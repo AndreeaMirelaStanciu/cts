@@ -1,7 +1,7 @@
 package ro.ase.csie.cts.seminar2.solid;
 
 import java.util.Date;
-
+//pt principiul single responsability (Solid)
 public class Person {
 	
 	private String name;

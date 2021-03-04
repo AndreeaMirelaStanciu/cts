@@ -21,7 +21,9 @@ public class BankAccount {
 		balance = 0;
 	}
 
-	public void withdraw(long amount) {
+	public void withdraw(long amount) throws InsuficientFundException {
+		if(amount > balance)
+			throw new InsuficientFundException("Insuficient funds " + balance);
 		System.out.println("withdrawing " + amount + " from " + iban);
 		balance -= amount;
 	}
