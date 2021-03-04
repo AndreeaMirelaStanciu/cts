@@ -2,7 +2,7 @@ package ro.ase.csie.cts.seminar2;
 
 import java.text.DateFormatSymbols;
 import java.util.Locale;
-
+//principiile KISS, etc de completat
 public class CalendarUtil {
 	
 	public String weekDay(int day) throws IncorectDayException {
@@ -60,7 +60,7 @@ public class CalendarUtil {
 	        if (day <= 0 || day > 7){
 	            throw new IncorectDayException("Only 7 days in a week");
 	        }
-	       String[] days =  new DateFormatSymbols().getWeekdays();
+	       String[] days =  new DateFormatSymbols().getWeekdays();//fac arrayul de zile dintr o clasa deja existenta in java
 
 	        return days[day];
 	    }
