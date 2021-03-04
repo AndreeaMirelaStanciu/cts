@@ -10,6 +10,8 @@ public class Main {
 		System.out.println(cu.weekDay(1));
 		
 		System.out.println(cu.weekDay2(1));
+		
+		System.out.println(cu.weekDay3(1));
 	}
 
 }
