@@ -45,6 +45,8 @@ public class CalendarUtil {
 	
 	public String weekDay3(int day){
         String[] weekDays = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        if(day<=0||day>7)
+			return null;
         return weekDays[day-1];
     }
 		
