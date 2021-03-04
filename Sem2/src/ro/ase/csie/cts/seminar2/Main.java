@@ -36,6 +36,13 @@ public class Main {
 		Person p = new Person("Mirela");
 		BankAccount account = new BankAccount("INGB123456789",p);
 		System.out.println(account.toString());
+		
+		account.deposit(100);
+		account.withdraw(50);
+		
+		account.withdraw(70);
+		
+		System.out.println(account.getBalance());
 	}
 
 }

@@ -22,10 +22,12 @@ public class BankAccount {
 	}
 
 	public void withdraw(long amount) {
+		System.out.println("withdrawing " + amount + " from " + iban);
 		balance -= amount;
 	}
 	
 	public void deposit(long amount) {
+		System.out.println("depositing " + amount + " in " + iban);
 		balance += amount;
 	}
 	
