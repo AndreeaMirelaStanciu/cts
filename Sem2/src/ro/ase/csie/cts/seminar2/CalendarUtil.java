@@ -1,5 +1,8 @@
 package ro.ase.csie.cts.seminar2;
 
+import java.text.DateFormatSymbols;
+import java.util.Locale;
+
 public class CalendarUtil {
 	
 	public String weekDay(int day) throws IncorectDayException {
@@ -52,4 +55,13 @@ public class CalendarUtil {
 		
 	//de obicei e o idee proasta sa returnezi null
 	// ex System.out.println(cu.weekDay3(9).toUpperCase()); va returna o exceptie
+	
+	 public String weekDay4(int day) throws IncorectDayException {
+	        if (day <= 0 || day > 7){
+	            throw new IncorectDayException("Only 7 days in a week");
+	        }
+	       String[] days =  new DateFormatSymbols().getWeekdays();
+
+	        return days[day];
+	    }
 }
