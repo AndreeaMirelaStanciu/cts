@@ -8,6 +8,8 @@ public class Main {
 		CalendarUtil cu = new CalendarUtil();
 		
 		System.out.println(cu.weekDay(1));
+		
+		System.out.println(cu.weekDay2(1));
 	}
 
 }
