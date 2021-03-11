@@ -1,19 +1,7 @@
 
 //principiul SOLID
-public class DebitBankAccount implements Payable, Receivable {
-	private String iban;
+public class DebitBankAccount extends BankAccount implements Payable, Receivable {
 	
-	private double balance;//nu au o precizie ff buna, ex in main
-
-	private Person accountHolder;
-	
-	public Person getAccountHolder() {
-		return accountHolder;
-	}
-
-	public void setAccountHolder(Person accountHolder) {
-		this.accountHolder = accountHolder;
-	}
 
 	public DebitBankAccount(String iban, Person person) {
 		this.iban=iban;
@@ -41,7 +29,7 @@ public class DebitBankAccount implements Payable, Receivable {
 		return iban;
 	}
 
-	public double getBalance() {
+	public long getBalance() {
 		return balance;
 	}
 

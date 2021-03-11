@@ -1,11 +1,6 @@
 
-public class CreditBankAccount implements Receivable {
+public class CreditBankAccount extends BankAccount implements Receivable {
 
-	private long balance;
-	
-	private String iban;
-	
-	private Person accountHolder;
 
 	public CreditBankAccount(String iban, Person accountHolder, long balance) {
 		this.iban = iban;
