@@ -1,6 +1,6 @@
 
 //principiul SOLID
-public class BankAccount {
+public class BankAccount implements Account {
 	private String iban;
 	
 	private double balance;//nu au o precizie ff buna, ex in main
@@ -21,6 +21,7 @@ public class BankAccount {
 		balance = 0;
 	}
 
+	@Override
 	public void withdraw(long amount) throws InsuficientFundException {
 		if(amount > balance)
 			throw new InsuficientFundException("Insuficient funds " + balance);
@@ -28,6 +29,7 @@ public class BankAccount {
 		balance -= amount;
 	}
 	
+	@Override
 	public void deposit(long amount) {
 		System.out.println("adding " + amount + " in " + iban);
 		balance += amount;

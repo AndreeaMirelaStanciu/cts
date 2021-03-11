@@ -23,11 +23,11 @@ public class Main {
 		employees.put(p3, b3);
 		
 		//e ziua de salariu si vrem sa le adaugam bani in cont
-		for(BankAccount a : employees.values()) {
+		for(Account a : employees.values()) {
 			a.deposit(1000);
 		}
 		
-		for(BankAccount a : employees.values()) {
+		for(Account a : employees.values()) {
 			try {
 				a.withdraw(10);
 			} catch (InsuficientFundException ex) {
