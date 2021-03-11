@@ -69,4 +69,5 @@ public class Main {
 			//sau ctrl+1 pt altele
 			//ctrl+o gasire mai rapida metoda
 			//ctrl+shift+t sa gasim clasa/exceptia etc in pachete
+	//seminar 3
 }
