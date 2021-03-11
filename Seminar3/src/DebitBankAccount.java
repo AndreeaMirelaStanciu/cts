@@ -1,6 +1,6 @@
 
 //principiul SOLID
-public class BankAccount implements Account {
+public class DebitBankAccount implements Payable, Receivable {
 	private String iban;
 	
 	private double balance;//nu au o precizie ff buna, ex in main
@@ -15,7 +15,7 @@ public class BankAccount implements Account {
 		this.accountHolder = accountHolder;
 	}
 
-	public BankAccount(String iban, Person person) {
+	public DebitBankAccount(String iban, Person person) {
 		this.iban=iban;
 		this.accountHolder = person;
 		balance = 0;

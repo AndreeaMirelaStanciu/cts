@@ -1,6 +1,6 @@
 
 //pt comisionul luat de banca la tranzactii
-public class FeeBankAccount extends BankAccount {
+public class FeeBankAccount extends DebitBankAccount {
 
 	private long fee = 2;
 	
