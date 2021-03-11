@@ -3,7 +3,8 @@
 public class DebitBankAccount extends BankAccount implements Payable, Receivable, Transferable {
 	
 
-	public DebitBankAccount(String iban, Person person) {
+	public DebitBankAccount(NotificationService ns, String iban, Person person) {
+		super(ns);
 		this.iban=iban;
 		this.accountHolder = person;
 		balance = 0;
@@ -13,13 +14,13 @@ public class DebitBankAccount extends BankAccount implements Payable, Receivable
 	public void withdraw(long amount) throws InsuficientFundException {
 		if(amount > balance)
 			throw new InsuficientFundException("Insuficient funds " + balance);
-		System.out.println("withdrawing " + amount + " from " + iban);
+		notificationService.sendNotificationService(accountHolder, "withdrawing " + amount + " from " + iban);
 		balance -= amount;
 	}
 	
 	@Override
 	public void deposit(long amount) {
-		System.out.println("adding " + amount + " in " + iban);
+		notificationService.sendNotificationService(accountHolder, "adding " + amount + " in " + iban);
 		balance += amount;
 	}
 	
