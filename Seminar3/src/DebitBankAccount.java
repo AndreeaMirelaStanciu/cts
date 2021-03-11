@@ -1,6 +1,6 @@
 
 //principiul SOLID
-public class DebitBankAccount extends BankAccount implements Payable, Receivable {
+public class DebitBankAccount extends BankAccount implements Payable, Receivable, Transferable {
 	
 
 	public DebitBankAccount(String iban, Person person) {
@@ -36,6 +36,13 @@ public class DebitBankAccount extends BankAccount implements Payable, Receivable
 	@Override
 	public String toString() {
 		return "BankAccount [iban=" + iban + ", balance=" + balance + ", accountHolder=" + accountHolder + "]";
+	}
+
+	@Override
+	public void transfer(Receivable destination, long amount) throws InsuficientFundException {
+		this.withdraw(amount);
+		destination.deposit(amount);
+		
 	}
 
 	
