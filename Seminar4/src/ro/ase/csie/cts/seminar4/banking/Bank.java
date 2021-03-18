@@ -20,12 +20,11 @@ public class Bank {
 	
 	public DebitBankAccount openDebitAccount(Person holder) {
 		DebitBankAccount account;
-		if(holder.getAge()>18)
-			account = new FeeBankAccount(emailNotificationService, generateIban(), holder);
-		else
-			account = new DebitBankAccount(emailNotificationService, generateIban(), holder);
-		
-		return account;
+		if (holder.getAge() > 18)
+            account = new FeeBankAccount(holder.getNotificationType() == Person.NotificationType.EMAIL ? emailNotificationService : smsNotificationService, generateIban(), holder);
+        else
+            account = new DebitBankAccount(holder.getNotificationType() == Person.NotificationType.EMAIL ? emailNotificationService : smsNotificationService, generateIban(), holder);
+        return account;
 	}
 	
 	private String generateIban() {
