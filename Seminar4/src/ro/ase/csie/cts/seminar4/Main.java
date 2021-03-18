@@ -9,6 +9,7 @@ import ro.ase.csie.cts.seminar4.banking.DebitBankAccount;
 import ro.ase.csie.cts.seminar4.banking.EmailNotificationService;
 import ro.ase.csie.cts.seminar4.banking.NotificationService;
 import ro.ase.csie.cts.seminar4.banking.Person;
+import ro.ase.csie.cts.seminar4.singleton.Elvis;
 
 public class Main {
 
@@ -31,6 +32,10 @@ public class Main {
 		bankAccount.deposit(50);
 		
 		System.out.println(bankAccount.toString());
+		
+		Elvis elvis = Elvis.theTrueElvis;
+		
+		elvis.sing();
 	}
 
 }
