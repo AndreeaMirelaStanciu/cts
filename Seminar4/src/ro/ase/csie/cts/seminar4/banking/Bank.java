@@ -3,10 +3,12 @@ package ro.ase.csie.cts.seminar4.banking;
 public class Bank {
 	private static Bank INSTANCE;
 	
-	private NotificationService notificationService;
+	private NotificationService emailNotificationService;
+	private NotificationService smsNotificationService;
 	
 	private Bank() {
-		notificationService = new EmailNotificationService();
+		emailNotificationService = new EmailNotificationService();
+		smsNotificationService = new SMSNotificationService();
 	}
 	
 	public static synchronized Bank getInstance() {
@@ -17,7 +19,11 @@ public class Bank {
 	}
 	
 	public DebitBankAccount openDebitAccount(Person holder) {
-		DebitBankAccount account = new DebitBankAccount(notificationService, generateIban(), holder);
+		DebitBankAccount account;
+		if(holder.getAge()>18)
+			account = new FeeBankAccount(emailNotificationService, generateIban(), holder);
+		else
+			account = new DebitBankAccount(emailNotificationService, generateIban(), holder);
 		
 		return account;
 	}

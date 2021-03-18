@@ -11,6 +11,7 @@ import ro.ase.csie.cts.seminar4.banking.EmailNotificationService;
 import ro.ase.csie.cts.seminar4.banking.InsuficientFundException;
 import ro.ase.csie.cts.seminar4.banking.NotificationService;
 import ro.ase.csie.cts.seminar4.banking.Person;
+import ro.ase.csie.cts.seminar4.banking.Person.NotificationType;
 import ro.ase.csie.cts.seminar4.singleton.Elvis;
 import ro.ase.csie.cts.seminar4.singleton.ElvisV2;
 
@@ -48,11 +49,28 @@ public class Main {
 		elvisV2.sing();
 		
 		Bank bank = Bank.getInstance();
-		DebitBankAccount debit1 = bank.openDebitAccount(p3);
+		
+		Person adult = new Person("Van Damme");
+		adult.setEmail("Damme@Van.com");
+		adult.setMobile("07489753847");
+		adult.setAge(30);
+		adult.setNotificationType(NotificationType.SMS);
+		
+		Person child = new Person("Van Damme");
+		child.setEmail("Damme@Van.com");
+		child.setMobile("07489753847");
+		child.setAge(14);
+		adult.setNotificationType(NotificationType.EMAIL);
+		
+		DebitBankAccount debit1 = bank.openDebitAccount(adult);
+		
+		DebitBankAccount debit2 = bank.openDebitAccount(child);
 		
 		debit1.deposit(20);
+		debit2.deposit(5);
 		try {
 			debit1.withdraw(15);
+			debit2.withdraw(3);
 		} catch (InsuficientFundException e) {
 			System.out.println(e.getMessage());
 		}

@@ -78,6 +78,22 @@ public class Person {
 		this.salary = salary;
 	}
 
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public NotificationType getNotificationType() {
+		return notificationType;
+	}
+
+	public void setNotificationType(NotificationType notificationType) {
+		this.notificationType = notificationType;
+	}
+
 	@Override
 	public String toString() {
 		return "Person [name=" + name + ", address=" + address + ", birthdate=" + birthdate + ", salary=" + salary
