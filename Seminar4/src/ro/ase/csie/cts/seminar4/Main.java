@@ -62,6 +62,7 @@ public class Main {
 		child.setAge(14);
 		adult.setNotificationType(NotificationType.EMAIL);
 		
+		
 		DebitBankAccount debit1 = bank.openDebitAccount(adult);
 		
 		DebitBankAccount debit2 = bank.openDebitAccount(child);
@@ -76,6 +77,7 @@ public class Main {
 		}
 		
 		System.out.println(debit1);
+		System.out.println(debit2);
 	}
 
 }
