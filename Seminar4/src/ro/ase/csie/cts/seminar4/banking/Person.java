@@ -11,6 +11,8 @@ public class Person {
 	
 	private Date birthdate;
 	
+	private Integer age;
+	
 	private long salary;
 	
 	private String email;
@@ -74,6 +76,12 @@ public class Person {
 
 	public void setSalary(long salary) {
 		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", address=" + address + ", birthdate=" + birthdate + ", salary=" + salary
+				+ ", email=" + email + ", mobile=" + mobile + ", notificationType=" + notificationType + "]";
 	}
 
 	
