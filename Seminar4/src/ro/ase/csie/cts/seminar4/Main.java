@@ -10,6 +10,7 @@ import ro.ase.csie.cts.seminar4.banking.EmailNotificationService;
 import ro.ase.csie.cts.seminar4.banking.NotificationService;
 import ro.ase.csie.cts.seminar4.banking.Person;
 import ro.ase.csie.cts.seminar4.singleton.Elvis;
+import ro.ase.csie.cts.seminar4.singleton.ElvisV2;
 
 public class Main {
 
@@ -33,9 +34,16 @@ public class Main {
 		
 		System.out.println(bankAccount.toString());
 		
-		Elvis elvis = Elvis.theTrueElvis;
+		Elvis elvis = Elvis.getInstance();
 		
 		elvis.sing();
+		
+		Elvis elvis2 = Elvis.getInstance();
+		
+		System.out.println(elvis == elvis2);
+		
+		ElvisV2 elvisV2 = ElvisV2.INSTANCE; 
+		elvisV2.sing();
 	}
 
 }
