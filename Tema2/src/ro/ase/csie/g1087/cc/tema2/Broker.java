@@ -1,24 +1,15 @@
 package ro.ase.csie.g1087.cc.tema2;
 
 public class Broker {
-	double procentTaxa;
 	ContCredit[] conturi;
+	InterfataComision interfataComision; 
 	
-	public Broker(double procentTaxa, ContCredit[] conturi) {
-		this.procentTaxa = procentTaxa;
+	public Broker(ContCredit[] conturi, InterfataComision interfataComision) {
 		this.conturi = conturi;
+		this.interfataComision = interfataComision;
 	}
 
-	public double calculeazaTaxaBroker(double dobandaPrincipala) {
-		return this.procentTaxa * dobandaPrincipala;
-	}
-	
-	public double calculeazaComisionTotal() {
-		double comisionTotal = 0.0;		
-		for (ContCredit cont : conturi) {
-			if (cont.tipCont == Account.PREMIUM || cont.tipCont == Account.SUPER_PREMIUM)
-				comisionTotal += calculeazaTaxaBroker(cont.imprumut.calculeazaDobandaPrincipala());	
-		}
-		return comisionTotal;
+	public double getComision() {
+		return this.interfataComision.calculeazaComisionTotal(conturi);
 	}
 }
