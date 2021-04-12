@@ -2,8 +2,8 @@ package ro.ase.csie.g1087.cc.tema2;
 
 public class Broker {
 	ContCredit[] conturi;
-	InterfataComision interfataComision; 
-	
+	InterfataComision interfataComision;
+
 	public Broker(ContCredit[] conturi, InterfataComision interfataComision) {
 		this.conturi = conturi;
 		this.interfataComision = interfataComision;

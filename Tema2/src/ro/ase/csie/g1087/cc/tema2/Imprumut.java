@@ -10,12 +10,12 @@ public class Imprumut implements InterfataImprumut {
 		this.valoareImprumut = valoareImprumut;
 		this.rata = rata;
 	}
-	
+
 	public double getRataLunara() {
-		return (valoareImprumut * this.rata)/12;
+		return (valoareImprumut * this.rata) / 12;
 	}
 
-	public double getValoareImprumut() {	
+	public double getValoareImprumut() {
 		return valoareImprumut;
 	}
 
@@ -33,7 +33,7 @@ public class Imprumut implements InterfataImprumut {
 		verificaValoare(valoare);
 		valoareImprumut = valoare;
 	}
-	
+
 	public double calculeazaDobandaPrincipala() {
 		return this.valoareImprumut - this.valoareImprumut * Math.pow(this.rata, (this.zileActiv / 365));
 	}

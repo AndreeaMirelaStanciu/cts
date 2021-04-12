@@ -9,7 +9,7 @@ public class ContCredit {
 		this.imprumut = imprumut;
 		this.tipCont = tipCont;
 	}
-	
+
 	public String toString() {
 		return "Loan: " + this.imprumut.valoareImprumut + "; rate: " + this.imprumut.rata + "; days active:"
 				+ this.imprumut.zileActiv + "; Type: " + this.tipCont + ";";
