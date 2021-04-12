@@ -1,17 +1,18 @@
 package ro.ase.csie.g1087.cc.tema2;
 
 public class Imprumut implements InterfataImprumut {
+	int zileActiv;
 	double valoareImprumut, rata;
-	protected NotificationService notificationService;
 
-	public Imprumut(double valoareImprumut, double rata) {
-		super();
+	public Imprumut(int zileActiv, double valoareImprumut, double rata) throws ValoareInvalidaException {
+		this.zileActiv = zileActiv;
+		verificaValoare(valoareImprumut);
 		this.valoareImprumut = valoareImprumut;
 		this.rata = rata;
 	}
 	
 	public double getRataLunara() {
-		return valoareImprumut * this.rata;
+		return (valoareImprumut * this.rata)/12;
 	}
 
 	public double getValoareImprumut() {	
@@ -31,5 +32,9 @@ public class Imprumut implements InterfataImprumut {
 	public void setValoare(double valoare) throws ValoareInvalidaException {
 		verificaValoare(valoare);
 		valoareImprumut = valoare;
+	}
+	
+	public double calculeazaDobandaPrincipala() {
+		return this.valoareImprumut - this.valoareImprumut * Math.pow(this.rata, (this.zileActiv / 365));
 	}
 }

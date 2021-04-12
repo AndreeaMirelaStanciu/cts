@@ -2,20 +2,17 @@ package ro.ase.csie.g1087.cc.tema2;
 
 public class ContCredit {
 
-	int zileActiv;
 	Account tipCont;
 	Imprumut imprumut;
 
-
-	public ContCredit(int zileActiv, Account tipCont, Imprumut imprumut) throws ValoareInvalidaException {
+	public ContCredit(Account tipCont, Imprumut imprumut) {
 		this.imprumut = imprumut;
 		this.tipCont = tipCont;
-		this.zileActiv = zileActiv;
 	}
 	
 	public String toString() {
 		return "Loan: " + this.imprumut.valoareImprumut + "; rate: " + this.imprumut.rata + "; days active:"
-				+ this.zileActiv + "; Type: " + this.tipCont + ";";
+				+ this.imprumut.zileActiv + "; Type: " + this.tipCont + ";";
 	}
 
 	public void print() {
