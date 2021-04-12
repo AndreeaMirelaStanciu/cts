@@ -11,7 +11,7 @@ public class Main {
 			ContCredit contCredit = new ContCredit(Account.SUPER_PREMIUM, imprumut);
 			ContCredit contCredit2 = new ContCredit(Account.PREMIUM, imprumut2);
 			contCredit.print();
-			contCredit2.print();
+			System.out.println(contCredit2.toString());
 			ContCredit conturi[] = new ContCredit[2];
 			conturi[0] = contCredit;
 			conturi[1] = contCredit2;

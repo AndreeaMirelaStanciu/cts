@@ -1,8 +1,8 @@
 package ro.ase.csie.g1087.cc.tema2;
 
 public class Imprumut implements InterfataImprumut {
-	int zileActiv;
-	double valoareImprumut, rata;
+	private int zileActiv;
+	private double valoareImprumut, rata;
 
 	public Imprumut(int zileActiv, double valoareImprumut, double rata) throws ValoareInvalidaException {
 		this.zileActiv = zileActiv;
@@ -35,6 +35,12 @@ public class Imprumut implements InterfataImprumut {
 	}
 
 	public double calculeazaDobandaPrincipala() {
-		return this.valoareImprumut - this.valoareImprumut * Math.pow(this.rata, (this.zileActiv / 365));
+		final int temp = 365; 
+		return this.valoareImprumut - this.valoareImprumut * Math.pow(this.rata, (this.zileActiv / temp));
 	}
+
+	public int getZileActiv() {
+		return zileActiv;
+	}
+	
 }

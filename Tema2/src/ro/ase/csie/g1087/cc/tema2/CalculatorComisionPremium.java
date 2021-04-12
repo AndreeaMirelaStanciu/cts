@@ -2,7 +2,7 @@ package ro.ase.csie.g1087.cc.tema2;
 
 public class CalculatorComisionPremium implements InterfataComision {
 
-	double procentTaxa;
+	private double procentTaxa;
 
 	public CalculatorComisionPremium(double procentTaxa) {
 		this.procentTaxa = procentTaxa;
@@ -12,8 +12,8 @@ public class CalculatorComisionPremium implements InterfataComision {
 	public double calculeazaComisionTotal(ContCredit[] conturi) {
 		double comisionTotal = 0.0;
 		for (ContCredit cont : conturi) {
-			if (cont.tipCont == Account.PREMIUM || cont.tipCont == Account.SUPER_PREMIUM)
-				comisionTotal += calculeazaTaxaBroker(cont.imprumut.calculeazaDobandaPrincipala());
+			if (cont.getTipCont() == Account.PREMIUM || cont.getTipCont() == Account.SUPER_PREMIUM)
+				comisionTotal += calculeazaTaxaBroker(cont.getImprumut().calculeazaDobandaPrincipala());
 		}
 		return comisionTotal;
 	}
