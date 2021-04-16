@@ -1,4 +1,4 @@
-package ro.ase.csie.cts.g1087.composite;
+package ro.ase.csie.cts.g1087.dp.composite;
 
 public abstract class NodAbstractStructura implements InterfataCaractereNPC {
 	
