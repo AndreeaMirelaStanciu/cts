@@ -1,4 +1,4 @@
-package ro.ase.acie.cts.g1087.dp.flyweight;
+package ro.ase.csie.cts.g1087.dp.flyweight;
 
 public class TestFlyweight {
 	public static void main(String[] args) {

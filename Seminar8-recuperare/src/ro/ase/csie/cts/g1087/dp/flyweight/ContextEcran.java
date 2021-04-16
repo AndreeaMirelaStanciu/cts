@@ -1,4 +1,4 @@
-package ro.ase.acie.cts.g1087.dp.flyweight;
+package ro.ase.csie.cts.g1087.dp.flyweight;
 
 //pentru a gestiona starea temporara
 public class ContextEcran {
