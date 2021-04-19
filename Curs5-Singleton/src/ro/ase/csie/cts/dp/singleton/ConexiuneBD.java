@@ -13,7 +13,7 @@ public class ConexiuneBD {
 		System.out.println("Creare conexiune");
 	}
 
-	public ConexiuneBD(String ip, int port, String bd) {
+	private ConexiuneBD(String ip, int port, String bd) {
 		System.out.println("Creare conexiune");
 		this.ip = ip;
 		this.port = port;
