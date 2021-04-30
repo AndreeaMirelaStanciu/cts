@@ -10,6 +10,11 @@ import stanciu.andreea.mirela.g1087.builder.ConfiguratorCursant;
 import stanciu.andreea.mirela.g1087.builder.Cursant;
 import stanciu.andreea.mirela.g1087.builder.module.HobbySah;
 import stanciu.andreea.mirela.g1087.builder.module.InvestitieCrypto;
+import stanciu.andreea.mirela.g1087.factorymethod.FactoryAbstract;
+import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare1;
+import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare2;
+import stanciu.andreea.mirela.g1087.factorymethod.LectieAbstracta;
+import stanciu.andreea.mirela.g1087.factorymethod.TipLectie;
 import stanciu.andreea.mirela.g1087.singleton.ContAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ExceptieCreareAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ModulGestiune;
@@ -58,6 +63,19 @@ public class TestAssignment {
 				new ConfiguratorCursant(new BuilderCursant("Ionescu Maria", simpleDateFormat2, "0757727345",true));
 		configurator.construieste();
 		Cursant cursant2 = configurator.getCursant();
+		
+		//Factory method
+		boolean esteModulDeInvatare1 = true;
+		
+		FactoryAbstract factoryLectii = null;
+		
+		if(esteModulDeInvatare1) {
+			factoryLectii = new FactoryModInvatare1();
+		} else {
+			factoryLectii = new FactoryModInvatare2();
+		}
+
+		LectieAbstracta lectie = factoryLectii.getLectie(TipLectie.TEXT, "Lectie invetsitii", "Imobiliare");
 	}
 
 }
