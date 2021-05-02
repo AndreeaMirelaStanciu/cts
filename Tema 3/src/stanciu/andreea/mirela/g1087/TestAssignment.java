@@ -15,6 +15,7 @@ import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare1;
 import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare2;
 import stanciu.andreea.mirela.g1087.factorymethod.LectieAbstracta;
 import stanciu.andreea.mirela.g1087.factorymethod.TipLectie;
+import stanciu.andreea.mirela.g1087.prototype.ModelPortofoliuInvestitii;
 import stanciu.andreea.mirela.g1087.singleton.ContAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ExceptieCreareAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ModulGestiune;
@@ -76,6 +77,17 @@ public class TestAssignment {
 		}
 
 		LectieAbstracta lectie = factoryLectii.getLectie(TipLectie.TEXT, "Lectie invetsitii", "Imobiliare");
+		
+		//Prototype
+		System.out.println();
+		ModelPortofoliuInvestitii portofoliu1 = new ModelPortofoliuInvestitii(20.50);
+		//Model3DCaracter superman2 = new Model3DCaracter("albastru");
+
+		try {
+			ModelPortofoliuInvestitii portofoliu2 = (ModelPortofoliuInvestitii) portofoliu1.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
