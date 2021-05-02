@@ -28,7 +28,7 @@ public class ModelPortofoliuInvestitii {
 			this.strategii.add(new StrategieInvestitie("Obiectivul VAN"));
 			this.strategii.add(new StrategieInvestitie("mANAGEMENTUL RISCULUI"));
 
-			System.out.println("Model portofoliu de investitii generat");
+			System.out.println("Model portofoliu de investitii cu randament tinta de " + randamentTinta + " generat");
 		} catch (InterruptedException e) {
 		}
 	}

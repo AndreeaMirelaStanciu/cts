@@ -25,7 +25,7 @@ public class TestAssignment {
 
 	public static void main(String[] args) {
 		
-		//Singleton
+		System.out.println("\nTEST SINGLETON");
 		try {
 			ContAdministrator administrator1 = ContAdministrator.getAdministrator();
 			ContAdministrator administrator2 = ContAdministrator.getAdministrator();
@@ -42,7 +42,7 @@ public class TestAssignment {
 			System.out.println("S-a incercat crearea unui administrator diferit!");
 		}
 		
-		//Builder 
+		System.out.println("\nTEST BUILDER");
 		Date simpleDateFormat1 = null;
 		Date simpleDateFormat2 = null;
 		try {
@@ -59,13 +59,15 @@ public class TestAssignment {
 		builder.adaugaObiectivFinanciar(new InvestitieCrypto(50));
 		builder.adaugaHobby(new HobbySah(5));
 		Cursant cursant1 = builder.getCursant();
+		System.out.println(cursant1.toString());
 		
 		ConfiguratorCursant configurator = 
 				new ConfiguratorCursant(new BuilderCursant("Ionescu Maria", simpleDateFormat2, "0757727345",true));
 		configurator.construieste();
 		Cursant cursant2 = configurator.getCursant();
+		System.out.println(cursant2.toString());
 		
-		//Factory method
+		System.out.println("\nTEST FACTORY METHOD");
 		boolean esteModulDeInvatare1 = true;
 		
 		FactoryAbstract factoryLectii = null;
@@ -76,10 +78,10 @@ public class TestAssignment {
 			factoryLectii = new FactoryModInvatare2();
 		}
 
-		LectieAbstracta lectie = factoryLectii.getLectie(TipLectie.TEXT, "Lectie invetsitii", "Imobiliare");
+		LectieAbstracta lectie = factoryLectii.getLectie(TipLectie.TEXT, "Lectie investitii", "Imobiliare");
+		System.out.println(lectie.toString());
 		
-		//Prototype
-		System.out.println();
+		System.out.println("\nTEST PROTOTYPE");
 		ModelPortofoliuInvestitii portofoliu1 = new ModelPortofoliuInvestitii(20.50);
 		//Model3DCaracter superman2 = new Model3DCaracter("albastru");
 

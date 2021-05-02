@@ -134,5 +134,13 @@ public class Cursant {
 
 	public void setObiectivFinanciar(InterfataObiectivFinanciar obiectivFinanciar) {
 		this.obiectivFinanciar = obiectivFinanciar;
+	}
+
+	@Override
+	public String toString() {
+		return "Cursant [nume=" + nume + ", dataNastere=" + dataNastere + ", telefon=" + telefon + ", adresaContact="
+				+ adresaContact + ", esteGenFeminin=" + esteGenFeminin + ", esteIncepator=" + esteIncepator
+				+ ", studii=" + studii + ", domeniuActivitate=" + domeniuActivitate + ", hobby=" + hobby
+				+ ", obiectivFinanciar=" + obiectivFinanciar + "]";
 	} 
 }

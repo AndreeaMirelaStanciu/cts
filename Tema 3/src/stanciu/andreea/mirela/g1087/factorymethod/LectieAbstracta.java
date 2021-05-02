@@ -16,4 +16,9 @@ public abstract class LectieAbstracta {
 	public void setTitlu(String titlu){
 		this.titlu = titlu;
 	}
+
+	@Override
+	public String toString() {
+		return "LectieAbstracta [titlu=" + titlu + ", tema=" + tema + "]";
+	}
 }
