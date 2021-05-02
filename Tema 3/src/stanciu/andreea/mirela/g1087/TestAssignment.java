@@ -2,8 +2,13 @@ package stanciu.andreea.mirela.g1087;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import stanciu.andreea.mirela.g1087.adapter.AdaptorSimulatorFondTranzactionare;
+import stanciu.andreea.mirela.g1087.adapter.SimulatorFondForex;
+import stanciu.andreea.mirela.g1087.adapter.SimulatorFondInvestitiiAbstract;
+import stanciu.andreea.mirela.g1087.adapter.SimulatorFondMutual;
 import stanciu.andreea.mirela.g1087.builder.BuilderAbstractCursant;
 import stanciu.andreea.mirela.g1087.builder.BuilderCursant;
 import stanciu.andreea.mirela.g1087.builder.ConfiguratorCursant;
@@ -89,6 +94,30 @@ public class TestAssignment {
 			ModelPortofoliuInvestitii portofoliu2 = (ModelPortofoliuInvestitii) portofoliu1.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
+		}
+		
+		System.out.println("\nTEST ADAPTER");
+		SimulatorFondMutual simulatorFondMutual = new SimulatorFondMutual(100000,0,25.00);
+		simulatorFondMutual.investeste(1000);
+		simulatorFondMutual.retrage(500);
+		
+		SimulatorFondForex simulatorFondForex = new SimulatorFondForex();
+		simulatorFondForex.setSoldCont(1000);
+		simulatorFondForex.setSumaTranzactionata(0);
+		simulatorFondForex.cumpara(500);
+		simulatorFondForex.vinde(200);
+		
+		ArrayList<SimulatorFondInvestitiiAbstract> simulatoare = new ArrayList<>();
+		simulatoare.add(simulatorFondMutual);
+		
+		AdaptorSimulatorFondTranzactionare adaptorFondForex = new AdaptorSimulatorFondTranzactionare(simulatorFondForex);
+		simulatoare.add(adaptorFondForex);
+		
+		System.out.println("----------------");
+		
+		for(SimulatorFondInvestitiiAbstract simulator : simulatoare) {
+			simulator.investeste(100);
+			simulator.retrage(100);
 		}
 	}
 

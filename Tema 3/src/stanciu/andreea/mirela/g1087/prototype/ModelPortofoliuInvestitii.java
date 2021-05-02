@@ -14,7 +14,7 @@ public class ModelPortofoliuInvestitii {
 
 		System.out.println("Incarcare model portofoliu de investitii din fisier .....");
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 
 			this.instrumente.add(new InstrumentFinanciar("Actiuni"));
 			this.instrumente.add(new InstrumentFinanciar("Obligatiuni"));
