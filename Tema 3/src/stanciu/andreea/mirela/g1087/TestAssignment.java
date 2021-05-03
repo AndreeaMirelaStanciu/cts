@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import stanciu.andreea.mirela.g1087.adapter.AdaptorSimulatorFondTranzactionare;
 import stanciu.andreea.mirela.g1087.adapter.SimulatorFondForex;
@@ -24,6 +25,11 @@ import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare1;
 import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare2;
 import stanciu.andreea.mirela.g1087.factorymethod.LectieAbstracta;
 import stanciu.andreea.mirela.g1087.factorymethod.TipLectie;
+import stanciu.andreea.mirela.g1087.flyweight.CaracteristiciAfisareEcran;
+import stanciu.andreea.mirela.g1087.flyweight.FactoryObiectGrafic;
+import stanciu.andreea.mirela.g1087.flyweight.InterfataObiectGrafic;
+import stanciu.andreea.mirela.g1087.flyweight.ObiectGrafic;
+import stanciu.andreea.mirela.g1087.flyweight.TipObiectGrafic;
 import stanciu.andreea.mirela.g1087.prototype.ModelPortofoliuInvestitii;
 import stanciu.andreea.mirela.g1087.singleton.ContAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ExceptieCreareAdministrator;
@@ -133,6 +139,17 @@ public class TestAssignment {
 		cursantB.sustineExamen();
 		cursantB = new DecoratorCursantPenalizare(cursantB,5);
 		cursantB.sustineExamen();
+		
+		System.out.println("\nTEST FLYWEIGHT");
+		InterfataObiectGrafic masina1 = (ObiectGrafic) FactoryObiectGrafic.getModel(TipObiectGrafic.MASINA);
+		InterfataObiectGrafic masina2 = (ObiectGrafic) FactoryObiectGrafic.getModel(TipObiectGrafic.MASINA);
+		InterfataObiectGrafic masina3 = (ObiectGrafic) FactoryObiectGrafic.getModel(TipObiectGrafic.MASINA);
+		
+		Random random = new Random();
+		
+		masina1.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"rosu", 50.5));
+		masina2.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"albastru", 70));
+		masina3.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"verde", 20.7));
 	}
 
 }
