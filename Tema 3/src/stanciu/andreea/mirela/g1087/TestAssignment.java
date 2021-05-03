@@ -15,6 +15,10 @@ import stanciu.andreea.mirela.g1087.builder.ConfiguratorCursant;
 import stanciu.andreea.mirela.g1087.builder.Cursant;
 import stanciu.andreea.mirela.g1087.builder.module.HobbySah;
 import stanciu.andreea.mirela.g1087.builder.module.InvestitieCrypto;
+import stanciu.andreea.mirela.g1087.decorator.CursantAbstract;
+import stanciu.andreea.mirela.g1087.decorator.CursantD;
+import stanciu.andreea.mirela.g1087.decorator.DecoratorCursantBonusMega;
+import stanciu.andreea.mirela.g1087.decorator.DecoratorCursantPenalizare;
 import stanciu.andreea.mirela.g1087.factorymethod.FactoryAbstract;
 import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare1;
 import stanciu.andreea.mirela.g1087.factorymethod.FactoryModInvatare2;
@@ -119,6 +123,16 @@ public class TestAssignment {
 			simulator.investeste(100);
 			simulator.retrage(100);
 		}
+		
+		System.out.println("\nTEST DECORATOR");
+		CursantAbstract cursantA = new CursantD("Popescu Ana", "0765243748", "ana@gmail.com");
+		cursantA.sustineExamen();
+		cursantA = new DecoratorCursantBonusMega(cursantA);
+		cursantA.sustineExamen();
+		CursantAbstract cursantB = new CursantD("Ionescu Andrei", "0748523876", "andrei@gmail.com");
+		cursantB.sustineExamen();
+		cursantB = new DecoratorCursantPenalizare(cursantB,5);
+		cursantB.sustineExamen();
 	}
 
 }
