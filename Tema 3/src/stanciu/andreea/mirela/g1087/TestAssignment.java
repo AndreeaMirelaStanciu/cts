@@ -16,6 +16,8 @@ import stanciu.andreea.mirela.g1087.builder.ConfiguratorCursant;
 import stanciu.andreea.mirela.g1087.builder.Cursant;
 import stanciu.andreea.mirela.g1087.builder.module.HobbySah;
 import stanciu.andreea.mirela.g1087.builder.module.InvestitieCrypto;
+import stanciu.andreea.mirela.g1087.composite.StructuraOrganizatoricaUtilizatori;
+import stanciu.andreea.mirela.g1087.composite.Utilizator;
 import stanciu.andreea.mirela.g1087.decorator.CursantAbstract;
 import stanciu.andreea.mirela.g1087.decorator.CursantD;
 import stanciu.andreea.mirela.g1087.decorator.DecoratorCursantBonusMega;
@@ -41,55 +43,54 @@ import stanciu.andreea.mirela.g1087.singleton.ModulProfil;
 public class TestAssignment {
 
 	public static void main(String[] args) {
-		
+
 		System.out.println("\nTEST SINGLETON");
 		try {
 			ContAdministrator administrator1 = ContAdministrator.getAdministrator();
 			ContAdministrator administrator2 = ContAdministrator.getAdministrator();
-			
+
 			System.out.println(administrator1);
 			System.out.println(administrator2);
-			
+
 			ModulGestiune modulGestiune = new ModulGestiune();
 			ModulProfil modulProfil = new ModulProfil();
-			
+
 			ContAdministrator jucator3 = ContAdministrator.getAdministrator("altAdmin@gmail.com", "123456");
 
 		} catch (ExceptieCreareAdministrator e) {
 			System.out.println("S-a incercat crearea unui administrator diferit!");
 		}
-		
+
 		System.out.println("\nTEST BUILDER");
 		Date simpleDateFormat1 = null;
 		Date simpleDateFormat2 = null;
 		try {
 			simpleDateFormat1 = new SimpleDateFormat("dd/MM/yyyy").parse("03/04/1995");
 			simpleDateFormat2 = new SimpleDateFormat("dd/MM/yyyy").parse("24/08/1999");
-			
+
 		} catch (ParseException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		BuilderCursant builder = 
-				new BuilderCursant("Popescu Ion", simpleDateFormat1, "0723648732",false);
+
+		BuilderCursant builder = new BuilderCursant("Popescu Ion", simpleDateFormat1, "0723648732", false);
 		builder.adaugaAdresaContact("popescuion@gmail.com");
 		builder.adaugaObiectivFinanciar(new InvestitieCrypto(50));
 		builder.adaugaHobby(new HobbySah(5));
 		Cursant cursant1 = builder.getCursant();
 		System.out.println(cursant1.toString());
-		
-		ConfiguratorCursant configurator = 
-				new ConfiguratorCursant(new BuilderCursant("Ionescu Maria", simpleDateFormat2, "0757727345",true));
+
+		ConfiguratorCursant configurator = new ConfiguratorCursant(
+				new BuilderCursant("Ionescu Maria", simpleDateFormat2, "0757727345", true));
 		configurator.construieste();
 		Cursant cursant2 = configurator.getCursant();
 		System.out.println(cursant2.toString());
-		
+
 		System.out.println("\nTEST FACTORY METHOD");
 		boolean esteModulDeInvatare1 = true;
-		
+
 		FactoryAbstract factoryLectii = null;
-		
-		if(esteModulDeInvatare1) {
+
+		if (esteModulDeInvatare1) {
 			factoryLectii = new FactoryModInvatare1();
 		} else {
 			factoryLectii = new FactoryModInvatare2();
@@ -97,41 +98,42 @@ public class TestAssignment {
 
 		LectieAbstracta lectie = factoryLectii.getLectie(TipLectie.TEXT, "Lectie investitii", "Imobiliare");
 		System.out.println(lectie.toString());
-		
+
 		System.out.println("\nTEST PROTOTYPE");
 		ModelPortofoliuInvestitii portofoliu1 = new ModelPortofoliuInvestitii(20.50);
-		//Model3DCaracter superman2 = new Model3DCaracter("albastru");
+		// Model3DCaracter superman2 = new Model3DCaracter("albastru");
 
 		try {
 			ModelPortofoliuInvestitii portofoliu2 = (ModelPortofoliuInvestitii) portofoliu1.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("\nTEST ADAPTER");
-		SimulatorFondMutual simulatorFondMutual = new SimulatorFondMutual(100000,0,25.00);
+		SimulatorFondMutual simulatorFondMutual = new SimulatorFondMutual(100000, 0, 25.00);
 		simulatorFondMutual.investeste(1000);
 		simulatorFondMutual.retrage(500);
-		
+
 		SimulatorFondForex simulatorFondForex = new SimulatorFondForex();
 		simulatorFondForex.setSoldCont(1000);
 		simulatorFondForex.setSumaTranzactionata(0);
 		simulatorFondForex.cumpara(500);
 		simulatorFondForex.vinde(200);
-		
+
 		ArrayList<SimulatorFondInvestitiiAbstract> simulatoare = new ArrayList<>();
 		simulatoare.add(simulatorFondMutual);
-		
-		AdaptorSimulatorFondTranzactionare adaptorFondForex = new AdaptorSimulatorFondTranzactionare(simulatorFondForex);
+
+		AdaptorSimulatorFondTranzactionare adaptorFondForex = new AdaptorSimulatorFondTranzactionare(
+				simulatorFondForex);
 		simulatoare.add(adaptorFondForex);
-		
+
 		System.out.println("----------------");
-		
-		for(SimulatorFondInvestitiiAbstract simulator : simulatoare) {
+
+		for (SimulatorFondInvestitiiAbstract simulator : simulatoare) {
 			simulator.investeste(100);
 			simulator.retrage(100);
 		}
-		
+
 		System.out.println("\nTEST DECORATOR");
 		CursantAbstract cursantA = new CursantD("Popescu Ana", "0765243748", "ana@gmail.com");
 		cursantA.sustineExamen();
@@ -139,30 +141,43 @@ public class TestAssignment {
 		cursantA.sustineExamen();
 		CursantAbstract cursantB = new CursantD("Ionescu Andrei", "0748523876", "andrei@gmail.com");
 		cursantB.sustineExamen();
-		cursantB = new DecoratorCursantPenalizare(cursantB,5);
+		cursantB = new DecoratorCursantPenalizare(cursantB, 5);
 		cursantB.sustineExamen();
-		
+
+		System.out.println("\nTEST COMPOSITE");
+		StructuraOrganizatoricaUtilizatori serieACursanti = new StructuraOrganizatoricaUtilizatori("Seria A",
+				"Serie cu mai multe clase");
+
+		StructuraOrganizatoricaUtilizatori clasaAvansati = new StructuraOrganizatoricaUtilizatori("Clasa avansati",
+				"Clasa in care sunt incadrati utilizatorii care au terminat cursul, dar aprofundeaza cu profesori care au predat initial la grupe de incepatori");
+
+		clasaAvansati.adaugaNodCopil(new Utilizator("Popescu", "avansat"));
+		clasaAvansati.adaugaNodCopil(new Utilizator("Ionescu", "avansat"));
+
+		serieACursanti.adaugaNodCopil(new Utilizator("Ion", "Profesor"));
+		serieACursanti.adaugaNodCopil(clasaAvansati);
+
+		System.out.println(serieACursanti.getInformatii());
+
 		System.out.println("\nTEST FLYWEIGHT");
 		InterfataObiectGrafic masina1 = (ObiectGrafic) FactoryObiectGrafic.getModel(TipObiectGrafic.MASINA);
 		InterfataObiectGrafic masina2 = (ObiectGrafic) FactoryObiectGrafic.getModel(TipObiectGrafic.MASINA);
 		InterfataObiectGrafic masina3 = (ObiectGrafic) FactoryObiectGrafic.getModel(TipObiectGrafic.MASINA);
-		
+
 		Random random = new Random();
-		
-		masina1.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"rosu", 50.5));
-		masina2.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"albastru", 70));
-		masina3.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"verde", 20.7));
-		
+
+		masina1.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100), random.nextInt(100), "rosu", 50.5));
+		masina2.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100), random.nextInt(100), "albastru", 70));
+		masina3.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100), random.nextInt(100), "verde", 20.7));
+
 		System.out.println("\nTEST PROXY");
-		final InterfataVideoclip videoclip1 = 
-        		new ProxyVideoclip("Video1");
-        final InterfataVideoclip videoclip2 = 
-        		new ProxyVideoclip("Video2");
- 
-        videoclip1.redareVideoclip();
-        videoclip2.redareVideoclip();
-        videoclip2.redareVideoclip();
-        videoclip1.redareVideoclip();
+		final InterfataVideoclip videoclip1 = new ProxyVideoclip("Video1");
+		final InterfataVideoclip videoclip2 = new ProxyVideoclip("Video2");
+
+		videoclip1.redareVideoclip();
+		videoclip2.redareVideoclip();
+		videoclip2.redareVideoclip();
+		videoclip1.redareVideoclip();
 	}
 
 }
