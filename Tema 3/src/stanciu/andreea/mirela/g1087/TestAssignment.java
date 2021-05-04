@@ -101,7 +101,6 @@ public class TestAssignment {
 
 		System.out.println("\nTEST PROTOTYPE");
 		ModelPortofoliuInvestitii portofoliu1 = new ModelPortofoliuInvestitii(20.50);
-		// Model3DCaracter superman2 = new Model3DCaracter("albastru");
 
 		try {
 			ModelPortofoliuInvestitii portofoliu2 = (ModelPortofoliuInvestitii) portofoliu1.clone();
