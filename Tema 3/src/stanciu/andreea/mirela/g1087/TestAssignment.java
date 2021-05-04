@@ -55,10 +55,10 @@ public class TestAssignment {
 			ModulGestiune modulGestiune = new ModulGestiune();
 			ModulProfil modulProfil = new ModulProfil();
 
-			ContAdministrator jucator3 = ContAdministrator.getAdministrator("altAdmin@gmail.com", "123456");
+			ContAdministrator administrator3 = ContAdministrator.getAdministrator("altAdmin@gmail.com", "123456");
 
 		} catch (ExceptieCreareAdministrator e) {
-			System.out.println("S-a incercat crearea unui administrator diferit!");
+			System.out.println("S-a incercat crearea unui cont de administrator diferit!");
 		}
 
 		System.out.println("\nTEST BUILDER");
