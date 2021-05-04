@@ -31,6 +31,8 @@ import stanciu.andreea.mirela.g1087.flyweight.InterfataObiectGrafic;
 import stanciu.andreea.mirela.g1087.flyweight.ObiectGrafic;
 import stanciu.andreea.mirela.g1087.flyweight.TipObiectGrafic;
 import stanciu.andreea.mirela.g1087.prototype.ModelPortofoliuInvestitii;
+import stanciu.andreea.mirela.g1087.proxy.InterfataVideoclip;
+import stanciu.andreea.mirela.g1087.proxy.ProxyVideoclip;
 import stanciu.andreea.mirela.g1087.singleton.ContAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ExceptieCreareAdministrator;
 import stanciu.andreea.mirela.g1087.singleton.ModulGestiune;
@@ -150,6 +152,17 @@ public class TestAssignment {
 		masina1.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"rosu", 50.5));
 		masina2.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"albastru", 70));
 		masina3.afisareEcran(new CaracteristiciAfisareEcran(random.nextInt(100),random.nextInt(100),"verde", 20.7));
+		
+		System.out.println("\nTEST PROXY");
+		final InterfataVideoclip videoclip1 = 
+        		new ProxyVideoclip("Video1");
+        final InterfataVideoclip videoclip2 = 
+        		new ProxyVideoclip("Video2");
+ 
+        videoclip1.redareVideoclip();
+        videoclip2.redareVideoclip();
+        videoclip2.redareVideoclip();
+        videoclip1.redareVideoclip();
 	}
 
 }
