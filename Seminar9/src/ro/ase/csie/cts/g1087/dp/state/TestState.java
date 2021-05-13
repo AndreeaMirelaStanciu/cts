@@ -2,7 +2,7 @@ package ro.ase.csie.cts.g1087.dp.state;
 
 public class TestState {
 	public static void main(String[] args) {
-		SuperErou superman = new SuperErou("Superman", 1000);
+		SuperErou superman = new SuperErou("Superman", 100);
 		
 		superman.seDeplaseaza();
 		superman.esteAtacat(50);
