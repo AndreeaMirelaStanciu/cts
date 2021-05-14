@@ -15,11 +15,12 @@ public class ModulChatPrivat extends NodChainAbstract{
 		if(mesaj.getDestinatie().isEmpty() || mesaj.getDestinatie().equals("@Everyone")) {//nu e rolul nostru, il trimitem mai departe
 			if(this.next != null) {
 				this.next.procesareMesajChat(mesaj);
-			} else {
-				//procesare mesaj privat
-				System.out.println(String.format("Mesaj privat pentru %s = %s ", 
-						mesaj.getDestinatie(), mesaj.getContinut()));
-			}
+			} 
+		}
+		else {
+			//procesare mesaj privat
+			System.out.println(String.format("Mesaj privat pentru %s = %s ", 
+					mesaj.getDestinatie(), mesaj.getContinut()));
 		}
 	}
 
