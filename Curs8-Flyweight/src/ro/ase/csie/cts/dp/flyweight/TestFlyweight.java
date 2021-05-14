@@ -2,7 +2,7 @@ package ro.ase.csie.cts.dp.flyweight;
 
 public class TestFlyweight {
 
-	private static Client[] caractereText = new Client[100];
+	private static Caracter[] caractereText = new Caracter[100];
 	private static RezervareContext[] pozitiiCaractere = new RezervareContext[100];
 	private static int nrCaractere = 0;
 	

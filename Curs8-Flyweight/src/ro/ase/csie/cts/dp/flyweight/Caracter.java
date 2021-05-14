@@ -1,12 +1,12 @@
 package ro.ase.csie.cts.dp.flyweight;
 
 //Concrete Flyweight
-public class Client  implements CaracterPrintabil {
+public class Caracter  implements CaracterPrintabil {
 	private final String caracter;
 	private int fontSize;
 	//alte atribute specifice starii permanente
 	
-	public Client(String valoare){
+	public Caracter(String valoare){
 		this.caracter = valoare;
 	}
 	

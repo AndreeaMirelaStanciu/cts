@@ -5,12 +5,12 @@ import java.util.Map;
 
 //Flyweight factory
 public class CaracterFactory {
-	private Map<String, Client> caractere = new HashMap<String, Client>();
+	private Map<String, Caracter> caractere = new HashMap<String, Caracter>();
 
-	public Client getCaracter(String valoareCaracter) {
-		Client caracter = caractere.get(valoareCaracter);
+	public Caracter getCaracter(String valoareCaracter) {
+		Caracter caracter = caractere.get(valoareCaracter);
 		if (caracter == null) {
-			caracter = new Client(valoareCaracter);
+			caracter = new Caracter(valoareCaracter);
 			caractere.put(valoareCaracter, caracter);
 		}
 		return caracter;
