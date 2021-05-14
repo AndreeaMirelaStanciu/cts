@@ -1,10 +1,10 @@
 package ro.ase.csie.cts.dp.flyweight;
 
 //Client context
-public class CaracterContext {
+public class RezervareContext {
 	private final int pozitieText;
 
-	public CaracterContext(int pozitie) {
+	public RezervareContext(int pozitie) {
 		this.pozitieText = pozitie;
 	}
 
