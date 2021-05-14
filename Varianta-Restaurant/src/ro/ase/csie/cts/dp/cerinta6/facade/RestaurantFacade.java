@@ -4,8 +4,6 @@ public class RestaurantFacade {
 	Receptionist receptionist;
 	Masa masa;
 	
-	public boolean verificaDisponibilitateMasa() {
-		
-	}
+	
 	
 }
