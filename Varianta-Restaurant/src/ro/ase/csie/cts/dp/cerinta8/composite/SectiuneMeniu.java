@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 
 
-public class SubsectiuneMeniu extends NodMeniuAbstract {
+public class SectiuneMeniu extends NodMeniuAbstract {
 	ArrayList<NodMeniuAbstract> elementeStructura = new ArrayList();
 	String numeSectiune;
 
-	public SubsectiuneMeniu(String numeSectiune) {
+	public SectiuneMeniu(String numeSectiune) {
 		this.numeSectiune = numeSectiune;
 	}
 

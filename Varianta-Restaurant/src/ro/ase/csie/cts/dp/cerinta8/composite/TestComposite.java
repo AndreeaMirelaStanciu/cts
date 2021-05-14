@@ -4,10 +4,10 @@ public class TestComposite {
 	public static void main(String[] args) {
 
 		// definire structura organizatorica
-		SubsectiuneMeniu meniuMicDejun = new SubsectiuneMeniu("Mic Dejun");
+		SectiuneMeniu meniuMicDejun = new SectiuneMeniu("Mic Dejun");
 
 		// definire nod composite
-		SubsectiuneMeniu meniuVara = new SubsectiuneMeniu("Meniu Vara");
+		SectiuneMeniu meniuVara = new SectiuneMeniu("Meniu Vara");
 
 		// adaugare angajati in echipa
 		meniuMicDejun.adaugaNodCopil(new ItemMeniu("Ompleta", 12));
