@@ -10,10 +10,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import ro.ase.csie.cts.g1087.testare.exceptii.ExceptieNota;
 import ro.ase.csie.cts.g1087.testare.exceptii.ExceptieVarsta;
 import ro.ase.csie.cts.g1087.testare.modele.Student;
+import ro.ase.csie.cts.g1087.testare.teste.categorii.TesteImportante;
 
 public class TestStudentAlteTeste {
 
@@ -24,6 +26,8 @@ public class TestStudentAlteTeste {
 		static String numeInitial;
 		static int varstaInitiala;
 		static int nrNoteInitiale;
+		
+		static ArrayList<Integer> noteTestPerformanta;
 
 		@BeforeClass
 		public static void setUpBeforeClass() throws Exception {
@@ -35,6 +39,12 @@ public class TestStudentAlteTeste {
 			}
 			numeInitial = "Miri";
 			varstaInitiala = Student.MIN_VARSTA + 1;
+			
+			ArrayList<Integer> noteTestPerformanta = new ArrayList<>();
+			int nrNote = 1000;
+			for(int i = 0; i< nrNote; i++ ) {
+				noteTestPerformanta.add(Student.MAX_NOTA);
+			}
 		}
 
 		@AfterClass
@@ -101,5 +111,85 @@ public class TestStudentAlteTeste {
 					noteStudent, noteStudentDupaModificare);
 		}
 		
+		@Test
+		public void testGetMediePerformance() throws ExceptieNota {
+			
+			//NU aici = va inregistra si partea de definire a datelor
+			//long tStart = System.currentTimeMillis();
+			
+			ArrayList<Integer> note = new ArrayList<>();
+			int nrNote = 1000000;
+			for(int i = 0; i< nrNote; i++ ) {
+				note.add(Student.MAX_NOTA);
+			}
+			student.setNote(note);
+			
+			long tStart = System.currentTimeMillis();
+			float medieCalculata = student.getMedie();
+			long tFinal = System.currentTimeMillis();
+			
+			long durataMinima = 15;		//100 de milisecunde
+			long durata = tFinal - tStart;
+			if(durata < durataMinima) {
+				assertTrue(true);
+			} else {
+				fail("Testul a depasit durata minima");
+			}
+		}
 		
+		@Test(timeout = 10)
+		public void testGetMediePerformanceJunit4() throws ExceptieNota {
+			
+			student.setNote(noteTestPerformanta);
+			
+			student.getMedie();
+			
+		}
+		
+		@Test 
+		public void testGetNotaMinimaInverseRelation() throws ExceptieNota {
+			ArrayList<Integer> note = new ArrayList<>();
+			int nrNote = 1000;
+			Random random = new Random();
+			for(int i = 0; i< nrNote; i++ ) {
+				note.add(random.nextInt(Student.MAX_NOTA) + 1);
+			}
+			student.setNote(note);
+			
+			int minimCalculat = student.getNotaMinima();
+			
+			//pentru ca nu putem determina valoarea estimata
+			//verificam relatie dintre minim si valorile initiale
+			for(int i = 0; i< nrNote; i++ ) {
+				if(minimCalculat > note.get(i)) {
+					fail("Minimul calculat nu este corect");
+			}
+			}
+			assertTrue(true);
+ 		}
+		
+		@Category(TesteImportante.class)
+		@Test
+		public void testGetMedieCrossCheck() throws ExceptieNota {
+			ArrayList<Integer> note = new ArrayList<>();
+			int nrNote = 10;
+			Random random = new Random();
+			for(int i = 0; i< nrNote; i++ ) {
+				note.add(random.nextInt(Student.MAX_NOTA) + 1);
+			}
+			student.setNote(note);
+			
+			float medieEstimata = getMedieVariantaInitiala(note);
+			float medieCalculata = student.getMedie();
+			
+			assertEquals("Valorile calculate de cele 2 functii nu sunt identice", medieEstimata, medieCalculata, 0);
+		}
+		
+		public float getMedieVariantaInitiala(ArrayList<Integer> valori) {
+			float suma = 0;
+			for( int valoare : valori ) {
+				suma += valoare;
+			}
+			return suma/valori.size();
+		}
 }
